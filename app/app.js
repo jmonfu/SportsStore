@@ -10,7 +10,7 @@ angular.module('monfusportsstoreApp', [
     ])
     .config(function ($routeProvider) {
         $routeProvider.when("/complete", {
-            templateUrl: "app/main/thankyou.tmpl.html"
+            templateUrl: "app/order/thankyou.tmpl.html"
         });
         $routeProvider.when("/placeorder", {
             templateUrl: "app/order/placeorder.tmpl.html"

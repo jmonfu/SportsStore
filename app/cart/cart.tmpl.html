@@ -1,1 +1,53 @@
-This is the cart template
+<div ng-controller="cartCtrl as ctrl">
+    <div class="alert alert-warning" ng-show="cartData.length == 0">
+        There are no products in your shopping cart.
+        <a href="#/products" class="alert-link">Click here to return to the catalogue</a>
+    </div>
+    <div ng-hide="cartData.length == 0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in ctrl.cartData">
+                    <td class="text-left">
+                        <img style="float:left; height:80px; margin-right:10px" src="images/{{item.image}}" >
+                    </td>
+                    <td class="text-left">{{item.name}}</td>
+                    <td class="text-center">{{item.qty}}
+                        <button class="glyphicon glyphicon-plus btn-sm btn-warning" 
+                            ng-click="addItem(item)"></button> 
+                        <button class="glyphicon glyphicon-minus btn-sm btn-warning" 
+                            ng-click="removeItem(item)"></button> 
+                    </td>
+                    <td class="text-right">{{item.price * item.qty | currency}}</td>
+                    <td class="text-right">{{item.price | currency}}</td>
+                    <td>
+                        <button ng-click="remove(item)"
+                                class="btn btn-sm btn-warning">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" class="text-right"></td>
+                    <td class="text-right">
+                        <h4>Total: {{ total() | currency }}</h4>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="text-center">
+            <a class="btn btn-primary" href="#/products">Continue shopping</a>
+            <a class="btn btn-primary" href="#/placeorder">Place order now</a>
+        </div>
+    </div>
+</div>

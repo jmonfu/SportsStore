@@ -13,8 +13,9 @@
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1"
+                ng-controller="mainCtrl as ctrl">
+                <ul class="nav navbar-nav ">
                     <li>
                         <a href="#/products">Products</a>
                     </li>
@@ -27,9 +28,11 @@
                     <li>
                         <a href="#/admin">Admin</a>
                     </li>
+                    <li >
+                        <a class="fa fa-shopping-cart" href="#/cart">&nbsp;&nbsp;( {{ctrl.getTotalCartItems()}} )</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
