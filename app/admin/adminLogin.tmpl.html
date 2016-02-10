@@ -1,0 +1,25 @@
+<div class="well">
+    <!--<div class="alert alert-danger" ng-show="authenticationError">
+        Authentication Failed ({{ authenticationError.status }}). Try again.
+    </div>-->
+    <div><i>For this test use admin/guest</i></div>
+    <form name="authForm" novalidate ng-controller="adminCtrl as ctrl">
+        <div class="alert alert-danger" ng-show="authenticationError != null">
+            Authentication Failed ({{ authenticationError }}). Try again.
+        </div>
+        <div class="form-group">
+            <label>Username</label>
+            <input name="username" class="form-control" ng-model="username" required />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input name="password" type="password" class="form-control" ng-model="password" required />
+        </div>
+        <div class="text-center">
+            <button ng-click="authenticate(username, password)" 
+                ng-disabled="authForm.$invalid" class="btn btn-primary">
+                Log In
+            </button>
+        </div>
+    </form>
+</div>

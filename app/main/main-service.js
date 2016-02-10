@@ -3,7 +3,7 @@
 angular.module("monfusportsstoreApp")
     .service("MainService", function(){
         return {
-            totalCartItems: function(totalItems) {
+            getTotalCartItems: function(totalItems) {
                 var t = 0;
                 t = totalItems
                 return t;

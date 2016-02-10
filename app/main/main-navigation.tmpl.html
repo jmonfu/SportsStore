@@ -1,5 +1,5 @@
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container" ng-controller="mainCtrl as ctrl">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -8,14 +8,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+                <a class="navbar-brand logOutBtnMargin" href="#">MONFU SPORTS STORE
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1"
-                ng-controller="mainCtrl as ctrl">
+            <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav ">
+                    <li ng-show="isLoggedIn()">
+                        <a href="#">
+                            Welcome {{ getCurrentUser() }} !
+                        </a>
+                    </li>
                     <li>
                         <a href="#/products">Products</a>
                     </li>
@@ -29,7 +32,13 @@
                         <a href="#/admin">Admin</a>
                     </li>
                     <li >
-                        <a class="fa fa-shopping-cart" href="#/cart">&nbsp;&nbsp;( {{ctrl.getTotalCartItems()}} )</a>
+                        <a class="fa fa-shopping-cart" 
+                            href="#/cart">&nbsp;&nbsp;( {{ getTotalCartItems() }} )</a>
+                    </li>
+                    <li>
+                        <button ng-click="logout()" ng-show="isLoggedIn()" class="btn btn-primary btn-sm logOutBtnMargin">
+                            Log Out
+                        </button>
                     </li>
                 </ul>
             </div>

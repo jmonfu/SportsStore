@@ -2,11 +2,29 @@
 
 angular.module("monfusportsstoreApp")
 
-    .controller("mainCtrl", function($scope, CartService, MainService) {
+    .controller("mainCtrl", function($scope, CartService, MainService, AuthService) {
         var ctrl = this;    
-        
-        ctrl.getTotalCartItems = function() {
+                
+        $scope.getCurrentUser = function() {
+            var currentUser = AuthService.getCurrentUser();
+            if(currentUser != ""){
+                return currentUser;
+            }
+            else{
+                return " ";                
+            }    
+        }
+
+        $scope.getTotalCartItems = function() {
             return 0;
-            //return MainService.totaCartItems();
-        }        
+            //return MainService.getTotaCartItems();
+        }
+
+        $scope.isLoggedIn = function() {
+            return AuthService.isLoggedIn();
+        }           
+        
+        $scope.logout = function() {
+            AuthService.logOut();
+        }
 });

@@ -13,7 +13,7 @@ body {
 }
 
 .navbar-fixed-top .navbar-brand {
-    padding: 0 15px;
+    padding: 0 25px;
 }
 
 footer {
@@ -26,7 +26,8 @@ footer {
     }
 
     .navbar-fixed-top .navbar-brand {
-        padding: 15px 0;
+        padding: 20px 0;
     }
 }
 
+.logOutBtnMargin { margin-top: 10px; }
