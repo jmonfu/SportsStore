@@ -21,7 +21,6 @@ angular.module("monfusportsstoreApp")
             getCurrentUser: function() {
                 var userName = "";
                 userName = $cookieStore.get('currentUser');
-                console.log(userName);
                 return userName;
             },
             

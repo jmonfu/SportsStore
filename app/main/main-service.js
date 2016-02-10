@@ -1,12 +1,10 @@
 'use strict';
 
 angular.module("monfusportsstoreApp")
-    .service("MainService", function(){
+    .service("MainService", function(CartService){
         return {
-            getTotalCartItems: function(totalItems) {
-                var t = 0;
-                t = totalItems
-                return t;
+            getTotalCartItems: function() {
+                return CartService.getCartTotalItems();
             }
             
         }        

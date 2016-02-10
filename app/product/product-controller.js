@@ -8,7 +8,7 @@ angular.module('monfusportsstoreApp')
         
         $scope.addProductToCart = function(product) {
             CartService.addProductToCart(product);
-            MainService.totalCartItems(CartService.getCartTotalItems());
+            MainService.getTotalCartItems();
         };
         
     })

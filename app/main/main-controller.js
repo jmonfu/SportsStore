@@ -16,8 +16,7 @@ angular.module("monfusportsstoreApp")
         }
 
         $scope.getTotalCartItems = function() {
-            return 0;
-            //return MainService.getTotaCartItems();
+            return MainService.getTotalCartItems();
         }
 
         $scope.isLoggedIn = function() {
