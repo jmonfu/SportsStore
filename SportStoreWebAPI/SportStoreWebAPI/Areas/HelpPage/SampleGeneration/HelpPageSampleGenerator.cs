@@ -64,7 +64,7 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// <summary>
         /// Gets the request body samples for a given <see cref="ApiDescription"/>.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param Name="api">The <see cref="ApiDescription"/>.</param>
         /// <returns>The samples keyed by media type.</returns>
         public IDictionary<MediaTypeHeaderValue, object> GetSampleRequests(ApiDescription api)
         {
@@ -74,7 +74,7 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// <summary>
         /// Gets the response body samples for a given <see cref="ApiDescription"/>.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param Name="api">The <see cref="ApiDescription"/>.</param>
         /// <returns>The samples keyed by media type.</returns>
         public IDictionary<MediaTypeHeaderValue, object> GetSampleResponses(ApiDescription api)
         {
@@ -84,8 +84,8 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// <summary>
         /// Gets the request or response body samples.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
-        /// <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+        /// <param Name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param Name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
         /// <returns>The samples keyed by media type.</returns>
         public virtual IDictionary<MediaTypeHeaderValue, object> GetSample(ApiDescription api, SampleDirection sampleDirection)
         {
@@ -138,13 +138,13 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// <summary>
         /// Search for samples that are provided directly through <see cref="ActionSamples"/>.
         /// </summary>
-        /// <param name="controllerName">Name of the controller.</param>
-        /// <param name="actionName">Name of the action.</param>
-        /// <param name="parameterNames">The parameter names.</param>
-        /// <param name="type">The CLR type.</param>
-        /// <param name="formatter">The formatter.</param>
-        /// <param name="mediaType">The media type.</param>
-        /// <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+        /// <param Name="controllerName">Name of the controller.</param>
+        /// <param Name="actionName">Name of the action.</param>
+        /// <param Name="parameterNames">The parameter names.</param>
+        /// <param Name="type">The CLR type.</param>
+        /// <param Name="formatter">The formatter.</param>
+        /// <param Name="mediaType">The media type.</param>
+        /// <param Name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
         /// <returns>The sample that matches the parameters.</returns>
         public virtual object GetActionSample(string controllerName, string actionName, IEnumerable<string> parameterNames, Type type, MediaTypeFormatter formatter, MediaTypeHeaderValue mediaType, SampleDirection sampleDirection)
         {
@@ -171,7 +171,7 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// one using <see cref="DefaultSampleObjectFactory"/> (which wraps an <see cref="ObjectGenerator"/>) and other
         /// factories in <see cref="SampleObjectFactories"/>.
         /// </summary>
-        /// <param name="type">The type.</param>
+        /// <param Name="type">The type.</param>
         /// <returns>The sample object.</returns>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes",
             Justification = "Even if all items in SampleObjectFactories throw, problem will be visible as missing sample.")]
@@ -210,7 +210,7 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// <summary>
         /// Resolves the actual type of <see cref="System.Net.Http.ObjectContent{T}"/> passed to the <see cref="System.Net.Http.HttpRequestMessage"/> in an action.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param Name="api">The <see cref="ApiDescription"/>.</param>
         /// <returns>The type.</returns>
         public virtual Type ResolveHttpRequestMessageType(ApiDescription api)
         {
@@ -224,12 +224,12 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// <summary>
         /// Resolves the type of the action parameter or return value when <see cref="HttpRequestMessage"/> or <see cref="HttpResponseMessage"/> is used.
         /// </summary>
-        /// <param name="api">The <see cref="ApiDescription"/>.</param>
-        /// <param name="controllerName">Name of the controller.</param>
-        /// <param name="actionName">Name of the action.</param>
-        /// <param name="parameterNames">The parameter names.</param>
-        /// <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
-        /// <param name="formatters">The formatters.</param>
+        /// <param Name="api">The <see cref="ApiDescription"/>.</param>
+        /// <param Name="controllerName">Name of the controller.</param>
+        /// <param Name="actionName">Name of the action.</param>
+        /// <param Name="parameterNames">The parameter names.</param>
+        /// <param Name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+        /// <param Name="formatters">The formatters.</param>
         [SuppressMessage("Microsoft.Design", "CA1021:AvoidOutParameters", Justification = "This is only used in advanced scenarios.")]
         public virtual Type ResolveType(ApiDescription api, string controllerName, string actionName, IEnumerable<string> parameterNames, SampleDirection sampleDirection, out Collection<MediaTypeFormatter> formatters)
         {
@@ -279,10 +279,10 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// <summary>
         /// Writes the sample object using formatter.
         /// </summary>
-        /// <param name="formatter">The formatter.</param>
-        /// <param name="value">The value.</param>
-        /// <param name="type">The type.</param>
-        /// <param name="mediaType">Type of the media.</param>
+        /// <param Name="formatter">The formatter.</param>
+        /// <param Name="value">The value.</param>
+        /// <param Name="type">The type.</param>
+        /// <param Name="mediaType">Type of the media.</param>
         /// <returns></returns>
         [SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes", Justification = "The exception is recorded as InvalidSample.")]
         public virtual object WriteSampleObjectUsingFormatter(MediaTypeFormatter formatter, object value, Type type, MediaTypeHeaderValue mediaType)

@@ -28,7 +28,7 @@ namespace SportStoreWebAPI.Areas.HelpPage
         /// Collections: <see cref="IList{T}"/>, <see cref="IEnumerable{T}"/>, <see cref="ICollection{T}"/>, <see cref="IList"/>, <see cref="IEnumerable"/>, <see cref="ICollection"/> or anything deriving from <see cref="ICollection{T}"/> or <see cref="IList"/>.
         /// Queryables: <see cref="IQueryable"/>, <see cref="IQueryable{T}"/>.
         /// </summary>
-        /// <param name="type">The type.</param>
+        /// <param Name="type">The type.</param>
         /// <returns>An object of the given type.</returns>
         public object GenerateObject(Type type)
         {

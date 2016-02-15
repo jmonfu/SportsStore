@@ -1,4 +1,4 @@
-var Microsoft;
+﻿var Microsoft;
 (function (Microsoft) {
     var ApplicationInsights;
     (function (ApplicationInsights) {
@@ -283,7 +283,7 @@ var Microsoft;
                 var objectTypeDump = Object.prototype.toString.call(object);
                 var propertyValueDump = JSON.stringify(object);
                 if (objectTypeDump === "[object Error]") {
-                    propertyValueDump = "{ stack: '" + object.stack + "', message: '" + object.message + "', name: '" + object.name + "'";
+                    propertyValueDump = "{ stack: '" + object.stack + "', message: '" + object.message + "', Name: '" + object.name + "'";
                 }
                 return objectTypeDump + propertyValueDump;
             };
@@ -568,7 +568,7 @@ var AI;
             this.deviceVMName = "ai.device.vmName";
             this.locationIp = "ai.location.ip";
             this.operationId = "ai.operation.id";
-            this.operationName = "ai.operation.name";
+            this.operationName = "ai.operation.Name";
             this.operationParentId = "ai.operation.parentId";
             this.operationRootId = "ai.operation.rootId";
             this.operationSyntheticSource = "ai.operation.syntheticSource";
@@ -1164,11 +1164,11 @@ var Microsoft;
                             name = ApplicationInsights.Util.trim(name.toString());
                             if (name.search(/[^0-9a-zA-Z-._()\/ ]/g) >= 0) {
                                 name = name.replace(/[^0-9a-zA-Z-._()\/ ]/g, "_");
-                                ApplicationInsights._InternalLogging.throwInternalUserActionable(1 /* WARNING */, "name contains illegal characters. Illgeal character have been replaced with '_'. new name: " + name);
+                                ApplicationInsights._InternalLogging.throwInternalUserActionable(1 /* WARNING */, "Name contains illegal characters. Illgeal character have been replaced with '_'. new Name: " + name);
                             }
                             if (name.length > DataSanitizer.MAX_NAME_LENGTH) {
                                 name = name.substring(0, DataSanitizer.MAX_NAME_LENGTH);
-                                ApplicationInsights._InternalLogging.throwInternalUserActionable(1 /* WARNING */, "name is too long.  It has been truncated to " + DataSanitizer.MAX_NAME_LENGTH + " characters.  name: " + name);
+                                ApplicationInsights._InternalLogging.throwInternalUserActionable(1 /* WARNING */, "Name is too long.  It has been truncated to " + DataSanitizer.MAX_NAME_LENGTH + " characters.  Name: " + name);
                             }
                         }
                         return name;
@@ -2419,7 +2419,7 @@ var Microsoft;
             Timing.prototype.stop = function (name, url, properties, measurements) {
                 var start = this._events[name];
                 if (isNaN(start)) {
-                    ApplicationInsights._InternalLogging.throwInternalUserActionable(1 /* WARNING */, "stop" + this._name + " was called without a corresponding start" + this._name + " . Event name is '" + name + "'");
+                    ApplicationInsights._InternalLogging.throwInternalUserActionable(1 /* WARNING */, "stop" + this._name + " was called without a corresponding start" + this._name + " . Event Name is '" + name + "'");
                 }
                 else {
                     var end = +new Date;
