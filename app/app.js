@@ -25,8 +25,8 @@ angular.module('monfusportsstoreApp', [
         $routeProvider.when("/contact", {
             templateUrl: "app/contact/contact.tmpl.html"
         });
-        $routeProvider.when("/admin", {
-            templateUrl: "app/admin/adminLogin.tmpl.html"
+        $routeProvider.when("/login", {
+            templateUrl: "app/main/mainLogin.tmpl.html"
         });
         $routeProvider.otherwise({
             templateUrl: "app/product/productlist.tmpl.html"

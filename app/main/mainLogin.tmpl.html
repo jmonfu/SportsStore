@@ -3,7 +3,7 @@
         Authentication Failed ({{ authenticationError.status }}). Try again.
     </div>-->
     <div><i>For this test use admin/guest</i></div>
-    <form name="authForm" novalidate ng-controller="adminCtrl as ctrl">
+    <form name="authForm" novalidate ng-controller="mainCtrl as ctrl">
         <div class="alert alert-danger" ng-show="authenticationError != null">
             Authentication Failed ({{ authenticationError }}). Try again.
         </div>

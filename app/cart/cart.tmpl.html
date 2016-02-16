@@ -27,8 +27,8 @@
                         <button class="glyphicon glyphicon-minus btn-sm btn-warning" 
                             ng-click="removeItem(item)"></button> 
                     </td>
-                    <td class="text-right">{{item.price * item.qty | currency}}</td>
                     <td class="text-right">{{item.price | currency : "€"}}</td>
+                    <td class="text-right">{{item.price * item.qty | currency : "€"}}</td>
                     <td>
                         <button ng-click="remove(item)"
                                 class="btn btn-sm btn-warning">
