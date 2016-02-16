@@ -8,6 +8,7 @@ angular.module('monfusportsstoreApp', [
     'ngSanitize',
     'ngTouch'
     ])
+    .constant('ENDPOINT_URI', 'http://localhost:61913')
     .config(function ($routeProvider) {
         $routeProvider.when("/complete", {
             templateUrl: "app/order/thankyou.tmpl.html"

@@ -4,16 +4,17 @@
     <div class="col-xs-12" ng-controller="productCtrl as ctrl" >
         <div class="well" ng-repeat="item in ctrl.products">
             <h3>
-                <img style="float:left; height:80px; margin-right:10px" src="images/{{item.image}}" >
-                <strong>{{item.name}}</strong>
+                <img style="float:left; height:80px; margin-right:10px" 
+                    ng-src="images/Products/{{item.ImageName  || '' }}" >
+                <strong>{{item.Name}}</strong>
                 <span class="pull-right label label-primary">
-                    {{item.price | currency}}
+                    {{item.Price | currency : "€"}}
                 </span>
             </h3>
             <button ng-click="addProductToCart(item)" class="btn btn-success pull-right">
                 Add to cart
             </button>
-            <span class="small">{{item.description}}</span>
+            <span class="small">{{item.Description}}</span>
         </div>
     </div>
 

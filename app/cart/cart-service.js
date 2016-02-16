@@ -10,7 +10,7 @@ angular.module("monfusportsstoreApp")
                 var alreadyAdded = false;
                 for(var i=0; i < cartData.length; i++)
                 {
-                    if (cartData[i].id == product.id) {
+                    if (cartData[i].id == product.Id) {
                         cartData[i].qty += 1;
                         cartData[i].count++;
                         alreadyAdded = true;
@@ -19,7 +19,8 @@ angular.module("monfusportsstoreApp")
                 }
                 if (!alreadyAdded) {
                     cartData.push({
-                        id: product.id, image: product.image, name: product.name, qty: 1, price: product.price
+                        id: product.Id, image: product.ImageName, 
+                        name: product.Name, qty: 1, price: product.Price
                     });
                 }
             },
@@ -46,6 +47,7 @@ angular.module("monfusportsstoreApp")
             },
             
             getCartProducts: function() {
+                console.log(cartData);
                 return cartData;
             },
             

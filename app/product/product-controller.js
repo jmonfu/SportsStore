@@ -2,13 +2,27 @@
 
 angular.module('monfusportsstoreApp')
     .controller("productCtrl", function($scope, ProductService, CartService, MainService) {
+
         var ctrl = this;
+        ctrl.products = [];
         
-        ctrl.products = ProductService.getProducts();
+        ctrl.getProducts = function(){
+            ProductService.getProducts()
+                .then(function(data) {
+                    ctrl.products = data;
+                })
+                .catch(function(data, status) {
+                    console.error('Error Retrieving Products', status);
+                })
+                .finally(function() {
+                    console.log("finally finished");
+                });        
+        };
         
         $scope.addProductToCart = function(product) {
             CartService.addProductToCart(product);
             MainService.getTotalCartItems();
         };
         
+        ctrl.getProducts();
     })
