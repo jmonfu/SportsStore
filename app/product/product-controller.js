@@ -3,13 +3,13 @@
 angular.module('monfusportsstoreApp')
     .controller("productCtrl", function($scope, ProductService, CartService, MainService) {
 
-        var ctrl = this;
-        ctrl.products = [];
+        var vm = this;
+        vm.products = [];
         
-        ctrl.getProducts = function(){
+        vm.getProducts = function(){
             ProductService.getProducts()
                 .then(function(data) {
-                    ctrl.products = data;
+                    vm.products = data;
                 })
                 .catch(function(data, status) {
                     console.error('Error Retrieving Products', status);
@@ -24,5 +24,5 @@ angular.module('monfusportsstoreApp')
             MainService.getTotalCartItems();
         };
         
-        ctrl.getProducts();
+        vm.getProducts();
     })

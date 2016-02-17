@@ -1,9 +1,9 @@
-<div ng-controller="cartCtrl as ctrl">
-    <div class="alert alert-warning" ng-show="cartData.length == 0">
+<div ng-controller="cartCtrl as vm">
+    <div class="alert alert-warning" ng-show="vm.cartData.length == 0">
         There are no products in your shopping cart.
         <a href="#/products" class="alert-link">Click here to return to the catalogue</a>
     </div>
-    <div ng-hide="cartData.length == 0">
+    <div ng-hide="vm.cartData.length == 0">
         <table class="table">
             <thead>
                 <tr>
@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in ctrl.cartData">
+                <tr ng-repeat="item in vm.cartData">
                     <td class="text-left">
                         <img style="float:left; height:80px; margin-right:10px" 
                         src="images/Products/{{item.image}}" >

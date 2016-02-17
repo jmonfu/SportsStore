@@ -28,6 +28,12 @@ angular.module('monfusportsstoreApp', [
         $routeProvider.when("/login", {
             templateUrl: "app/main/mainLogin.tmpl.html"
         });
+        $routeProvider.when("/register", {
+            templateUrl: "app/register/register.tmpl.html"
+        });
+        $routeProvider.when("/registerSuccess", {
+            templateUrl: "app/register/registerSuccess.tmpl.html"
+        });
         $routeProvider.otherwise({
             templateUrl: "app/product/productlist.tmpl.html"
         });

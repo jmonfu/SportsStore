@@ -2,7 +2,7 @@
 
 angular.module('monfusportsstoreApp')
     .controller("orderCtrl", function($scope, CartService, $location) {
-        var ctrl = this;
+        var vm = this;
         
         $scope.sendOrder = function(shippingDetails) {
             var order = angular.copy(shippingDetails);

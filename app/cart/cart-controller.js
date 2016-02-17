@@ -3,9 +3,9 @@
 angular.module("monfusportsstoreApp")
 
     .controller("cartCtrl", function($scope, CartService) {
-    var ctrl = this;    
+    var vm = this;    
     
-    ctrl.cartData = CartService.getCartProducts();
+    vm.cartData = CartService.getCartProducts();
     
     $scope.total = function() {
         return CartService.getCartTotal();

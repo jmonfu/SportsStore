@@ -47,7 +47,6 @@ angular.module("monfusportsstoreApp")
             },
             
             getCartProducts: function() {
-                console.log(cartData);
                 return cartData;
             },
             
