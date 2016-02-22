@@ -4,7 +4,7 @@ angular.module("monfusportsstoreApp")
 
     .constant("authUrl", "http://localhost:56322/api/login")
     .controller("mainCtrl", function($scope, CartService, MainService, AuthService, $location) {
-        var ctrl = this;    
+        var vm = this;    
                 
         $scope.getCurrentUser = function() {
             var currentUser = AuthService.getCurrentUser();

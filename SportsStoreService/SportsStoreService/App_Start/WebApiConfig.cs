@@ -20,7 +20,8 @@ namespace SportsStoreService
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             //Enable CORS
-            var cors = new EnableCorsAttribute("http://http://localhost/MonfuSportsStore", "*", "*");
+            //var cors = new EnableCorsAttribute("http://localhost/MonfuSportsStore", "*", "*");
+            var cors = new EnableCorsAttribute("http://localhost", "*", "*");
             config.EnableCors(cors);
 
             //return JSON

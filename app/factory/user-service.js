@@ -3,8 +3,9 @@
 angular.module("monfusportsstoreApp")
     .factory("UserService", function($http, ENDPOINT_URI){
         
-        var url = ENDPOINT_URI + '/api/users/';
-
+        var url = ENDPOINT_URI + '/api/Account/';
+        var errorMessage = [];
+        
         return {
             
             getAllUsers: function() {
@@ -12,19 +13,18 @@ angular.module("monfusportsstoreApp")
             },
 
             createUser: function(user) {
-                console.log(user);
-                return $http.post(url, user).then(handleSuccess, handleError('Error creating user'));
+                return $http.post(url + "/Register", user)
+                    .then(handleSuccess, handleError);
             }
+            
         }        
         
         function handleSuccess(res) {
             return res.data;
         }
 
-        function handleError(error) {
-            return function () {
-                return { success: false, message: error };
-            };
+        function handleError(res) {
+            return res.data;
         }
         
 });
