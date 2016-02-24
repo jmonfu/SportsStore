@@ -20,7 +20,7 @@ angular.module("monfusportsstoreApp")
         }        
         
         function handleSuccess(res) {
-            return res.data;
+            return res.status;
         }
 
         function handleError(res) {

@@ -1,17 +1,18 @@
 'use-strict';
 
 angular.module('monfusportsstoreApp')
-    .controller("registerCtrl", function($scope, UserService) {
+    .controller("registerCtrl", function($scope, $location, UserService) {
 
         var vm = this;
         
         vm.register = register;
         vm.Error = '';
+        var errorMessages = [];
+        
         function register() {
                 UserService.createUser(vm.user)
                     .then(function (response) {
-                        if (response.success) {
-                            console.log('Registration successful');
+                        if (response == 200) {
                             $location.path('/registerSuccess');
                         } else {
                             errorMessages = parseErrors(response);

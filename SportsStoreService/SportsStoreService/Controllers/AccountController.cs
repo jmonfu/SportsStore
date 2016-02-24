@@ -338,6 +338,7 @@ namespace SportsStoreService.Controllers
             }
 
             return Ok();
+
         }
 
         // POST api/Account/RegisterExternal
