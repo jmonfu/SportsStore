@@ -5,16 +5,16 @@
         <div class="well" ng-repeat="item in vm.products">
             <h3>
                 <img style="float:left; height:80px; margin-right:10px" 
-                    ng-src="images/Products/{{item.ImageName  || '' }}" >
-                <strong>{{item.Name}}</strong>
+                    ng-src="images/Products/{{item.imageName  || '' }}" >
+                <strong>{{item.name}}</strong>
                 <span class="pull-right label label-primary">
-                    {{item.Price | currency : "€"}}
+                    {{item.price | currency : "€"}}
                 </span>
             </h3>
             <button ng-click="addProductToCart(item)" class="btn btn-success pull-right">
                 Add to cart
             </button>
-            <span class="small">{{item.Description}}</span>
+            <span class="small">{{item.description}}</span>
         </div>
     </div>
 

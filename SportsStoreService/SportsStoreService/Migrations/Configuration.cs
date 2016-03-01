@@ -7,7 +7,7 @@ namespace SportsStoreService.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SportsStoreServiceContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Models.SportsStoreServiceContext>
     {
         public Configuration()
         {

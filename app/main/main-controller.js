@@ -3,8 +3,15 @@
 angular.module("monfusportsstoreApp")
 
     .constant("authUrl", "http://localhost:56322/api/login")
-    .controller("mainCtrl", function($scope, CartService, MainService, AuthService, $location) {
+    .controller("mainCtrl", function($scope, CartService, MainService, 
+        AuthService, $location) {
         var vm = this;    
+
+        (function initController() {
+            // reset login status
+            AuthService.clearCredentials();
+        })();
+
                 
         $scope.getCurrentUser = function() {
             var currentUser = AuthService.getCurrentUser();
@@ -29,25 +36,15 @@ angular.module("monfusportsstoreApp")
         }
         
         $scope.authenticate = function(user, pass) {
-            if(AuthService.login(user,pass))
-            {
-                $scope.currentUser = AuthService.getCurrentUser();
-                $location.path("/main");
-            }
-            else
-            {
-                $scope.authenticationError = "Your login credentials are not correct!";
-            }
-            
-            // //authenticate users with database here
-            // $http.post(authUrl, {
-            //     username: user,
-            //     password: pass
-            // }).success(function(data) {
-            //     $location.path("/main");
-            // }).error(function(error) {
-            //     $scope.authenticationError = error;
-            // });
+            AuthService.login(user, pass, function() {
+                // if (response.success) {
+                //     AuthService.SetCredentials(user, pass);
+                //     $location.path('/');
+                // } else {
+                //     //display error message
+                // }
+            })                
         }
         
 });
+

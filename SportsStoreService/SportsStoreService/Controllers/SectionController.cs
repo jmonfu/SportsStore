@@ -15,7 +15,7 @@ namespace SportsStoreService.Controllers
 {
     public class SectionController : ApiController
     {
-        private SportsStoreServiceContext db = new SportsStoreServiceContext();
+        private Models.SportsStoreServiceContext db = new Models.SportsStoreServiceContext();
 
         // GET: api/Section
         public IQueryable<Section> GetSection()

@@ -8,12 +8,14 @@
             Authentication Failed ({{ authenticationError }}). Try again.
         </div>
         <div class="form-group">
-            <label>Username</label>
-            <input name="username" class="form-control" ng-model="username" required />
+            <label>Email Address</label>
+            <input name="username" class="form-control" ng-model="username" 
+                required value="your email address" />
         </div>
         <div class="form-group">
             <label>Password</label>
-            <input name="password" type="password" class="form-control" ng-model="password" required />
+            <input name="password" type="password" class="form-control" ng-model="password" 
+                required value="your password" />
         </div>
         <div class="text-center">
             <button ng-click="authenticate(username, password)" 

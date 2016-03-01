@@ -17,7 +17,7 @@ namespace SportsStoreService.Controllers
 {
     public class ProductsController : ApiController
     {
-        private SportsStoreServiceContext db = new SportsStoreServiceContext();
+        private Models.SportsStoreServiceContext db = new Models.SportsStoreServiceContext();
 
         //Enable CORS
         //http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors

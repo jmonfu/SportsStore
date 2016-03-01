@@ -1,21 +1,16 @@
 'use strict';
 
 angular.module("monfusportsstoreApp")
-    .factory( 'AuthService', function($cookieStore) {
+    .factory( 'AuthService', function($cookieStore, $rootScope, $http, ENDPOINT_URI) {
         
+        var url = ENDPOINT_URI + '/api/Account/';
+
         return {
-            login: function(user,pass) {
-                if(user == "admin" && pass == "guest") {
-                    var currUser = [];
-                    currUser.username = user;
-                    currUser.password = pass;
-                    $cookieStore.put('currentUser', currUser.username);
-                    return currUser;
-                }
-                else {
-                    return null;
-                }
-                                
+            login: function(user, pass, callback) {
+                $http.post(url, { username: user, password: pass })
+                   .success(function (response) {
+                       callback(response);
+                   });
             },
             
             getCurrentUser: function() {
@@ -38,6 +33,12 @@ angular.module("monfusportsstoreApp")
                     return false;
                 }
                 
+            },
+            
+            clearCredentials: function() {
+                $rootScope.globals = {};
+                $cookieStore.remove('currentUser');
+                $http.defaults.headers.common.Authorization = 'Basic';
             }
 
         };

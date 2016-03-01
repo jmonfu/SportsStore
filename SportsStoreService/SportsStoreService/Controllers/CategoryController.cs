@@ -15,7 +15,7 @@ namespace SportsStoreService.Controllers
 {
     public class CategoryController : ApiController
     {
-        private SportsStoreServiceContext db = new SportsStoreServiceContext();
+        private Models.SportsStoreServiceContext db = new Models.SportsStoreServiceContext();
 
         // GET: api/Category
         public IQueryable<Category> GetCategories()
